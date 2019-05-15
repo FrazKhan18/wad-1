@@ -7,13 +7,16 @@
         input[id="data"]:invalid{
             background-color: red;
         }
+        input[id="data"]:valid{
+            background-color: green;
+        }
     </style>
 </head>
 <body>
 <h1>Input Validation </h1>
 <form>
     <input id="data" placeholder="Enter input" required
-    pattern="...">
+    pattern="abc">
     <input type="submit">
 </form>
 </body>
