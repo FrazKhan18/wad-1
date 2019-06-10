@@ -14,15 +14,19 @@ if(isset($_POST['insert_pro'])){
     $pro_price = $_POST['pro_price'];
     $pro_desc = $_POST['pro_desc'];
     $pro_keywords = $_POST['pro_keywords'];
+    $pro_image = $_FILES['pro_image']['name'];
+    $temp_image = $_FILES['pro_image']['temp_name'];
+
+    move_uploaded_file($temp_img,"product_images/".time().$pro_img);
 
 
 
-    $insert_product = "insert into products (pro_cat, pro_brand,pro_title,pro_price,pro_desc,pro_keywords) 
-                  VALUES ('$pro_cat','$pro_brand','$pro_title','$pro_price','$pro_desc','$pro_keywords');";
-    $insert_pro = mysqli_query($con, $insert_product);
+    $insert_product = "insert into products (pro_cat, pro_brand,pro_title,pro_price,pro_desc,pro_keywords,pro_image) 
+                  VALUES ('$pro_cat','$pro_brand','$pro_title','$pro_price','$pro_desc','$pro_keywords','$pro_image');";
+   /* $insert_pro = mysqli_query($con, $insert_product);
     if($insert_pro){
         header("location: ".$_SERVER['PHP_SELF']);
-    }
+    }*/
 }
 ?>
 <html lang="en">
@@ -44,7 +48,7 @@ if(isset($_POST['insert_pro'])){
 <div class="container-fluid">
     <h1 class="text-center my-4"><i class="fas fa-plus fa-md"></i> <span class="d-none d-sm-inline"> Add New </span>
         Product </h1>
-    <form action="" method="post">
+    <form action="" method="post" e>
         <div class="row">
             <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
                 <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Product </span>
