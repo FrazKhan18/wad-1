@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <?php
-    $con = mysqli_connect("localhost","root","","techboxdb");
-    if(!$con)
-        echo "not connected";
-    else
-        echo "connected";
+require "server/functions.php";
 ?>
 <html lang="en">
 <head>
@@ -71,15 +67,7 @@
                     Categories
                 </a>
                 <ul class="collapse show list-unstyled" id="homeSubmenu">
-                    <?php
-                        $catQuery = "select * from categories";
-                        $catQueryResult =  mysqli_query($con,$catQuery);
-                        while($row = mysqli_fetch_assoc($catQueryResult))
-                        {
-                            $title=$row['category_name'];
-                            echo '<li><a class="nav-link"  href="#">'.$title.'</a></li>';
-                        }
-                    ?>
+                    <?php getCats(); ?>
                 </ul>
             </li>
             <li class="active">
@@ -88,15 +76,7 @@
                     Brands
                 </a>
                 <ul class="collapse show list-unstyled" id="pageSubmenu">
-                    <?php
-                    $bQuery = "select * from brands";
-                    $bQueryResult =  mysqli_query($con,$bQuery);
-                    while($row = mysqli_fetch_assoc($bQueryResult))
-                    {
-                        $title=$row['brand_name'];
-                        echo '<li><a class="nav-link"  href="#">'.$title.'</a></li>';
-                    }
-                    ?>
+                    <?php getBrands(); ?>
                 </ul>
             </li>
             <li>
@@ -114,9 +94,8 @@
         </ul>
     </nav>
     <article id="content" class="container-fluid bg-white">
-
         <div class="row">
-                Coming Soon
+            <?php getPro(); ?>
         </div>
     </article>
 
