@@ -102,12 +102,12 @@ require "server/functions.php";
 
 </div>
 <footer class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-               &copy; 2019 by Muhammad Ali Makhdoom
-            </div>
+    <div class="row">
+        <div class="col text-center">
+            &copy; 2019 by Muhammad Ali Makhdoom
         </div>
-    </footer>
+    </div>
+</footer>
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/bootstrap.bundle.js"></script>
 </body>
